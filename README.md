@@ -1,3 +1,8 @@
+### Pulling from Andrew's Boilerplate to Setup a simple application with authentication.
+
+
+
+
 # meteor-react-boilerplate
 A starter project for React &amp; Meteor
 
