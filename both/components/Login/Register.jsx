@@ -5,10 +5,12 @@ Register = React.createClass({
 
         var email = ele.find("#email").val();
         var password = ele.find("#password").val();
-        var confirmPassword = ele.find("confirmPassword").val();
-        console.log(email);
-        console.log(password);
-        console.log(confirmPassword);
+        var confirmPassword = ele.find("#confirmPassword").val();
+        if (password === confirmPassword && password !== "" & confirmPassword !== "") {
+
+        } else {
+            Materialize.toast('Password does not match!', 4000) // 4000 is the duration of the toast
+        }
     },
     render() {
         return (
