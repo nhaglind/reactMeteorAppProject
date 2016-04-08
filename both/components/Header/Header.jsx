@@ -7,7 +7,7 @@ Header = React.createClass({
     return (
       <nav style={navStyle}>
         <div className="nav-wrapper">
-          <a href="#" className="brand-logo">Logo</a>
+          <a href="#" className="brand-logo">App Name</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><a href="/">Home</a></li>
           </ul>
