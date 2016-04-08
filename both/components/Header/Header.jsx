@@ -10,6 +10,7 @@ Header = React.createClass({
           <a href="/" className="brand-logo">Kosupure</a>
           <ul id="nav-mobile" className="right hide-on-med-and-down">
             <li><a href="/register">Sign Up</a></li>
+            <li><a href="/login">Login</a></li>
           </ul>
         </div>
       </nav>

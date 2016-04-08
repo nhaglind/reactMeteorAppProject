@@ -13,16 +13,11 @@ Register = React.createClass({
           };
           Accounts.createUser(accountInfo, function(er) {
             if (er) {
-              Materialize.toast('There was a problem with creating your account.', 4000);
+              console.log(er);
+              Materialize.toast(er.reason, 4000);
             } else {
-              Meteor.loginWithPassword(email, password, function(er) {
-                if (er) {
-                  Materialize.toast('Could not login.', 4000);
-                } else {
-                  //Redirect
-                  console.log("Success");
-                }
-              });
+              //Redirect
+              FlowRouter.go('/');
             }
           });
         } else {
