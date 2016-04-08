@@ -1,4 +1,19 @@
 Header = React.createClass({
+  getInitialState() {
+      return {
+          isLoggedIn: User.isLoggedIn()
+      };
+  },
+  logout() {
+    Meteor.logout((er)=>{
+      if(er) {
+        Materialize.toast(er.reason, 4000);
+      } else {
+        this.setState({isLoggedIn: !this.state.isLoggedIn});
+        FlowRouter.go('/');
+      }
+    }.bind(this));
+  },
   render() {
     var navStyle = {
       backgroundColor: "#e1bee7",
@@ -9,6 +24,7 @@ Header = React.createClass({
       navOptions = (
         <ul id="nav-mobile" className="right hide-on-med-and-down">
           <li><a href="/">Home</a></li>
+          <li><a onClick={this.logout}>Logout</a></li>
         </ul>
       );
     } else {
