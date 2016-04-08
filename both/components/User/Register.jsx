@@ -13,7 +13,6 @@ Register = React.createClass({
           };
           Accounts.createUser(accountInfo, function(er) {
             if (er) {
-              console.log(er);
               Materialize.toast(er.reason, 4000);
             } else {
               //Redirect
@@ -48,7 +47,7 @@ Register = React.createClass({
                 </div>
               </div>
               <div className="row">
-                <button className="waves-effect waves-light btn btn-block">Submt</button>
+                <button className="waves-effect waves-light btn btn-block">Submit</button>
               </div>
             </form>
           </div>
