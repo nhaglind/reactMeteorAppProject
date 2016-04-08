@@ -1,5 +1,5 @@
 Register = React.createClass({
-    onSubmit(e) {
+      onSubmit(e) {
         e.preventDefault();
         var ele = $(e.target);
 
@@ -7,11 +7,28 @@ Register = React.createClass({
         var password = ele.find("#password").val();
         var confirmPassword = ele.find("#confirmPassword").val();
         if (password === confirmPassword && password !== "" & confirmPassword !== "") {
-
+          var accountInfo = {
+            email: email,
+            password: password
+          };
+          Accounts.createUser(accountInfo, function(er) {
+            if (er) {
+              Materialize.toast('There was a problem with creating your account.', 4000);
+            } else {
+              Meteor.loginWithPassword(email, password, function(er) {
+                if (er) {
+                  Materialize.toast('Could not login.', 4000);
+                } else {
+                  //Redirect
+                  console.log("Success");
+                }
+              });
+            }
+          });
         } else {
-            Materialize.toast('Password does not match!', 4000) // 4000 is the duration of the toast
+          Materialize.toast('Password does not match!', 4000);
         }
-    },
+      },
     render() {
         return (
           <div className="row">
